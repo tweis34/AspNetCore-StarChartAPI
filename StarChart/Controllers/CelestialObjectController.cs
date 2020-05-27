@@ -27,7 +27,7 @@ namespace StarChart.Controllers {
         public IActionResult GetByName(string name){
             var celestialObjects = _context.CelestialObjects.Where(e => e.Name == name);
 
-            if(celestialObjects.Any())
+            if(!celestialObjects.Any())
                 return NotFound();
             
             foreach(var celestialObject in celestialObjects){
