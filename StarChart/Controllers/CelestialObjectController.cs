@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using StarChart.Data;
 using System.Linq;
 
-namespace StarChart.Controllers{
+namespace StarChart.Controllers {
     [Route("")]
     [ApiController]
     public class CelestialObjectController : ControllerBase {
@@ -42,7 +42,7 @@ namespace StarChart.Controllers{
             var celestialObjects = _context.CelestialObjects.ToList();
 
             foreach(var celestialObject in celestialObjects){
-                celestialObject.Satellites = _context.CelestialObjects.Where(e => e.OrbitedObjectId == celestialObject.Id).ToList());
+                celestialObject.Satellites = _context.CelestialObjects.Where(e => e.OrbitedObjectId == celestialObject.Id).ToList();
             }
 
             return Ok(celestialObjects);
